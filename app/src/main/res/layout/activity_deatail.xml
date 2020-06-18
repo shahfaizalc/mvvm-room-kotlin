@@ -1,0 +1,87 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="mainData"
+            type="com.faizal.android.viewmodel.DetailViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorSmoke"
+        android:orientation="vertical"
+        tools:context="com.ahotbrew.toolbar.MainActivity">
+
+        <include
+            android:id="@+id/included"
+            layout="@layout/customappbar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorSmoke"
+            android:orientation="vertical"
+            tools:context="com.ahotbrew.toolbar.MainActivity">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/colorDarkgrey">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/dimen_8">
+
+                    <ImageView
+                        android:padding="@dimen/dimen_16"
+                        android:id="@+id/clubLogo"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginRight="0dp"
+                        android:layout_marginBottom="0dp"
+                        android:adjustViewBounds="true"
+                        android:foregroundGravity="center"
+                        android:scaleType="fitCenter"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:layout_editor_absoluteY="0dp" />
+
+                    <!-- other elements of this layout here... -->
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/clubCountry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|start"
+                    android:layout_margin="@dimen/dimen_8"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/dimen_20"
+                    android:textStyle="bold" />
+            </FrameLayout>
+
+            <TextView
+                android:textColor="@color/colorBlack"
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_8">
+
+            </TextView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</layout>

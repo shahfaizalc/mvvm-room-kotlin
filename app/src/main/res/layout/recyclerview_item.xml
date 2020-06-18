@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="itemClickListener"
+            type="com.accenture.list.listeners.AlbumsEventListener" />
+        <variable
+            name="albumsInfoModel"
+            type="com.faizal.android.model.ClubsModel" />
+        <variable
+            name="albumsInfoViewModel"
+            type="com.faizal.android.viewmodel.ClubsViewModel" />
+
+        <variable
+            name="itemPosition"
+            type="java.lang.Integer" />
+
+
+    </data>
+
+    <LinearLayout
+        android:onClick="@{() -> itemClickListener.onClickAlbumsListItem(albumsInfoViewModel,itemPosition)}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorSmoke"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/dimen_8"
+                android:layout_weight="3">
+
+                <ImageView
+                    android:id="@+id/background_image_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:adjustViewBounds="true"
+                    android:foregroundGravity="center"
+                    android:scaleType="fitCenter"
+                    app:imageUrl="@{albumsInfoModel.image}"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:layout_editor_absoluteY="0dp" />
+
+                <!-- other elements of this layout here... -->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/dimen_16">
+
+                <TextView
+                    android:id="@+id/textView"
+                    style="@style/clubs_text_large"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{albumsInfoModel.name}"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:textColor="@color/colorGrey"
+                    android:id="@+id/textView1"
+                    style="@style/clubs_text_small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{albumsInfoModel.country}" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    style="@style/clubs_text_medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@{String.format(@string/millionen, Long.toString(albumsInfoModel.value))}"
+                    android:textColor="@color/colorBlack" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGrey" />
+    </LinearLayout>
+</layout>
